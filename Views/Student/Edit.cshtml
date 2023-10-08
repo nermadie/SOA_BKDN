@@ -1,0 +1,21 @@
+@model Student
+@{
+  ViewData["Title"] = "Edit Student Page";
+  var student = Model;
+}
+<h1>Edit Student</h1>
+<form method="post" action="/student/save">
+  <div class="mb-3">
+    <label for="Name" class="form-label">Name</label>
+    <input type="text" class="form-control" name="Name" value="@student.Name">
+  </div>
+  <div class="mb-3">
+    <label for="Age" class="form-label">Age</label>
+    <input type="text" class="form-control" name="Age" value="@student.Age">
+  </div>
+  <div class="mb-3">
+    <label for="Address" class="form-label">Address</label>
+    <input type="text" class="form-control" name="Address" value="@student.Address">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

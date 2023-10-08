@@ -1,0 +1,36 @@
+﻿@model List<Student>;
+@{
+  ViewData["Title"] = "Student Page";
+  @* var students = ViewBag.ListStudent as List<Student>; //C1: ViewBag *@
+  @* var students = ViewData["ListStudent"] as List<Student>;//C2: ViewData *@
+  var students = Model;//C3: Model
+}
+
+<div class="text-center">
+  <h1 class="display-4">Welcome Student Page</h1>
+  <table class="table table-hover">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>
+        <a href="/student/add" class="btn btn-primary">Add</a>
+      </th>
+    </thead>
+    <tbody>
+      @foreach (var student in students)
+      {
+        <tr>
+          <td>@student.Id</td>
+          <td>@student.Name</td>
+          <td>@student.Age</td>
+          <td>@student.Address</td>
+          <td>
+            <a href="/student/edit?id=@student.Id" class="btn btn-success">Edit</a>
+            </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
